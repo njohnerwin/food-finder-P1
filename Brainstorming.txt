@@ -1,0 +1,36 @@
+# Restaurant finder based on location
+
+- Based on the user's location
+- Maybe also input other locations
+- Return restaurants in the area
+- Also returns info on the restaurants
+
+
+# APIs Used
+
+** Zomato
+** IP Location
+
+## Functionality brainstorm
+
+- Gets list of nearby restaurants
+- Allows user to input distance radius
+- Allow user to select to show all options or only delivery / pick-up
+- Presents restaurants in list format 
+- Allow user to sort in order of popularity or price
+
+-- Location (City + State + Street Address)
+-- Name
+-- URL (and menu URL)
+-- Phone Number
+-- Images
+-- Price range
+-- User rating
+
+# MVP
+- Somewhere for the user to input location / allow location 
+- List of the restaurant info
+
+## EXTRAS
+- Sidebar - previous locations 
+- Coupon integration
