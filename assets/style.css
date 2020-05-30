@@ -3,6 +3,15 @@
     margin: 0 auto;
 }
 
+#logo-header {
+    
+}
+
 @media screen and (max-width: 576px) {
+    
+    .grid-container {
+        width: 100%;
+    }
+
 
 }
