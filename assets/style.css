@@ -1,17 +1,52 @@
+body {
+    background-color: #fbeded
+}
+
 .grid-container {
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
 }
 
 #logo-header {
-    
+    height: 250px;
+    width: 100%;
+    margin-bottom: 25px;
+    background-image: url("logo-bckg-clean.png");
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0px;
 }
 
-@media screen and (max-width: 576px) {
+#logo-header-text {
+    font-family: 'Abril Fatface', cursive;
+    color: white;
+    margin: 0 auto;
+    font-size: 65px;
+    background-color: rgba(0, 0, 0, 0.349);
+    padding: 50px;
+}
+
+#card {
+    border-style: none;
+    background-color: white;
+    margin: 5px;
+    padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
     
     .grid-container {
         width: 100%;
     }
 
+    #logo-header {
+        height: 120px;
+    }
+
+    #logo-header-text {
+        font-size: 35px;
+        margin: 0 auto;
+        padding: 25px;
+    }
 
 }
