@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    // use variables to hold results to push to zomato api call
     var cityName = "";
     var stateCode = "";
     var lat = "";
@@ -14,7 +14,7 @@ $(document).ready(function () {
         // if (!cityName) {
         //     alert("Please enter a City Name!")
         // }
-       
+
         // AJAX call to the run OpenWeatherMap API to use city name as search criteria
         var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}${stateCode}&appid=${apiK}`;
 
