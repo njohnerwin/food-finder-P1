@@ -34,10 +34,11 @@ $(document).ready(function () {
                 console.log(lat)
                 lon = data.coord.lon
                 console.log(lon)
-               
+
+
                 var api = "527c121c5d125ed8860ba0873283b0c9";
                 var entityType = "city";
-                
+
                 // set lat and lon for api call
                 var coordS = `lat=${lat}&lon=${lon}`
 
@@ -55,11 +56,29 @@ $(document).ready(function () {
                     console.log(rests)
                     id = rests.establishments[0].establishment.id
                     console.log(id)
-                })
 
-                // api call to get resturants details
-                
-                
+                    console.log(entityType)
+                    // api call to get resturants details
+                    // var ids = id
+                    // console.log(ids)
+                    var queryURL2 = `https://developers.zomato.com/api/v2.1/location_details?entity_id=${id}&entity_type=${entityType}`
+
+                    console.log(queryURL2)
+
+                    // // https://developers.zomato.com/api/v2.1/location_details?entity_id=281&entity_type=city
+
+                    $.ajax({
+                        url: queryURL2,
+                        method: "GET",
+                        headers: {
+                            "user-key": api,
+                            "accept": "application/json"
+                        }
+                    }).then(function (details) {
+                        console.log(details)
+
+                    })
+                })
             }
         })
 
