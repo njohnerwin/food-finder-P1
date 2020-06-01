@@ -60,7 +60,24 @@ $(document).ready(function () {
                     var userRatings = rests.nearby_restaurants[0].restaurant.user_rating.aggregate_rating
                     var userRate = rests.nearby_restaurants[0].restaurant.user_rating.rating_text
 
-                    
+                    // append restaurant info to page
+                    $("#res").append("<p>" + "Restaurant Name: " + res1 + "</p>")
+                    $("#res").append("<p>" + "Cuisine: "+ res1C + "</p>")
+                    $("#res").append("<p>" + "Average Cost For Two: "+ "$" + r1Ac + "</p>")
+                    $("#res").append("<p>" + "Delivery: "+ delivery + "</p>")
+                    $("#res").append("<p>" + "Takeout: " + takeOut + "</p>")
+                    $("#res").append("<p>" +"Address: " + address + "</p>")
+                    $("#res").append("<p>" + "User Ratings: " + userRatings + "</p>")
+                    $("#res").append("<p>" + "Restaurant Rating: " + userRate + "</p>")
+                   
+
+
+
+                    // $("#errorSuccess").append("<b>" + aux + "</b>");
+                    // var button = $("<br><button>")
+                    // button.addClass("cities")
+                    // button.text(city).val(city)
+                    // $("#city-search").append(button)
 
 
                     console.log(res1)
