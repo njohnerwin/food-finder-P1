@@ -66,7 +66,7 @@ $(document).ready(function () {
                     var rest1 = rests.nearby_restaurants[1].restaurant.name
                     var rest2 = rests.nearby_restaurants[2].restaurant.name
                     var rest3 = rests.nearby_restaurants[3].restaurant.name
-                    var rest4 = rests.nearby_restaurants[4].restaurant.name 
+                    var rest4 = rests.nearby_restaurants[4].restaurant.name
                     var rest5 = rests.nearby_restaurants[5].restaurant.name
                     var rest6 = rests.nearby_restaurants[6].restaurant.name
                     var rest7 = rests.nearby_restaurants[7].restaurant.name
@@ -93,47 +93,91 @@ $(document).ready(function () {
                     console.log(userRatings)
                     console.log(userRate)
 
-                    // append restaurant info to page
-                    $("#res").append("<p>" + "Restaurant Name: " + res1 + "</p>")
-                    $("#res").append("<p>" + "Cuisine: "+ res1C + "</p>")
-                    $("#res").append("<p>" + "Average Cost For Two: "+ "$" + r1Ac + "</p>")
-                    $("#res").append("<p>" + "Delivery: "+ delivery + "</p>")
-                    $("#res").append("<p>" + "Takeout: " + takeOut + "</p>")
-                    $("#res").append("<p>" +"Address: " + address + "</p>")
-                    $("#res").append("<p>" + "User Ratings: " + userRatings + "</p>")
-                    $("#res").append("<p>" + "Restaurant Rating: " + userRate + "</p>")
-                   
+                    // append restaurant at index 0 info to page
+                    function restCard0() {
+                        $("#res").append("<p>" + "Restaurant Name: " + res1 + "</p>")
+                        $("#res").append("<p>" + "Cuisine: " + res1C + "</p>")
+                        $("#res").append("<p>" + "Average Cost For Two: " + "$" + r1Ac + "</p>")
+                        $("#res").append("<p>" + "Delivery: " + delivery + "</p>")
+                        $("#res").append("<p>" + "Takeout: " + takeOut + "</p>")
+                        $("#res").append("<p>" + "Address: " + address + "</p>")
+                        $("#res").append("<p>" + "User Ratings: " + userRatings + "</p>")
+                        $("#res").append("<p>" + "Restaurant Rating: " + userRate + "</p>")
+                    }
+                    // append restaurant at index 1 info to page
+                    function restCard1() {
+                        $("#res").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[1].restaurant.name + "</p>")
+                        $("#res").append("<p>" + "Cuisine: " + rests.nearby_restaurants[1].restaurant.cuisines + "</p>")
+                        $("#res").append("<p>" + "Average Cost For Two: " + "$" + rests.nearby_restaurants[1].restaurant.average_cost_for_two + "</p>")
+                        $("#res").append("<p>" + "Delivery: " + rests.nearby_restaurants[1].restaurant.R.has_menu_status.delivery + "</p>")
+                        $("#res").append("<p>" + "Takeout: " + rests.nearby_restaurants[1].restaurant.R.has_menu_status.takeaway + "</p>")
+                        $("#res").append("<p>" + "Address: " + address + "</p>")
+                        $("#res").append("<p>" + "User Ratings: " + rests.nearby_restaurants[1].restaurant.user_rating.aggregate_rating + "</p>")
+                        $("#res").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[1].restaurant.user_rating.rating_text + "</p>")
+                    }
+                    // append restaurant at index 2 info to page
+                    function restCard2() {
+                        $("#res").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[2].restaurant.name + "</p>")
+                        $("#res").append("<p>" + "Cuisine: " + rests.nearby_restaurants[2].restaurant.cuisines + "</p>")
+                        $("#res").append("<p>" + "Average Cost For Two: " + "$" + rests.nearby_restaurants[2].restaurant.average_cost_for_two + "</p>")
+                        $("#res").append("<p>" + "Delivery: " + rests.nearby_restaurants[2].restaurant.R.has_menu_status.delivery + "</p>")
+                        $("#res").append("<p>" + "Takeout: " + rests.nearby_restaurants[2].restaurant.R.has_menu_status.takeaway + "</p>")
+                        $("#res").append("<p>" + "Address: " + address + "</p>")
+                        $("#res").append("<p>" + "User Ratings: " + rests.nearby_restaurants[2].restaurant.user_rating.aggregate_rating + "</p>")
+                        $("#res").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[2].restaurant.user_rating.rating_text + "</p>")
+                    }
+                    // append restaurant at index 3 info to page
+                    function restCard3() {
+                        $("#res").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[3].restaurant.name + "</p>")
+                        $("#res").append("<p>" + "Cuisine: " + rests.nearby_restaurants[3].restaurant.cuisines + "</p>")
+                        $("#res").append("<p>" + "Average Cost For Two: " + "$" + rests.nearby_restaurants[3].restaurant.average_cost_for_two + "</p>")
+                        $("#res").append("<p>" + "Delivery: " + rests.nearby_restaurants[3].restaurant.R.has_menu_status.delivery + "</p>")
+                        $("#res").append("<p>" + "Takeout: " + rests.nearby_restaurants[3].restaurant.R.has_menu_status.takeaway + "</p>")
+                        $("#res").append("<p>" + "Address: " + address + "</p>")
+                        $("#res").append("<p>" + "User Ratings: " + rests.nearby_restaurants[3].restaurant.user_rating.aggregate_rating + "</p>")
+                        $("#res").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[3].restaurant.user_rating.rating_text + "</p>")
+                    }
                     // render list of restaurants based on city search
                     renderRestaurantList();
                     function renderRestaurantList() {
                         console.log(restList)
-                        // $.each(restList, function (i, resturants) { 
-                        //     $("#res").append("<div>" + restList + "</div>");
+                        // for (var i = 0; i < restList.length; i++) {
+                        //     $("#res").append("<div>" + restList[0] + "</div>");
+                        //     $("#res").append("<div>" + restList[1] + "</div>")
+                        //     $("#res").append("<div>" + restList[2] + "</div>")
+                        //     $("#res").append("<div>" + restList[3] + "</div>")
+                        //     $("#res").append("<div>" + restList[4] + "</div>")
+                        //     $("#res").append("<div>" + restList[5] + "</div>")
+                        //     $("#res").append("<div>" + restList[6] + "</div>")
+                        //     $("#res").append("<div>" + restList[7] + "</div>")
+                        //     $("#res").append("<div>" + restList[8] + "</div>")
 
-                        // })
+                        //     restList.splice(restList[0]);
+
+                        // }
                         // loop through array and append list 
-                        for (var i = 0; i < restList.length; i++){
+                        for (var i = 0; i < restList.length; i++) {
                             var restL = $("<ul>");
-                            $("#res").append("<ul>" + restList[i] + "</ul>")
-                            
-                            console.log(restList[i])
-                            
+                            // $("#res").append("<ul>" + restList[i] + "</ul>")
+                            console.log(cityName)
+                            if (restList[0]) {
+                                restCard0();
+                                restCard1()
+                                restCard2()
+                                restCard3()
+
+                                // use splice method to remove duplication 
+                                restList.splice(restList[0]);
+                            } else {
+
+                            }
+                        // console.log(restList[i])
+
                         }
-                
-        
+
                     };
-                    // $.each(cityList, function (i, city) {
-                    //     var button = $("<br><button>")
-                    //     button.addClass("cities")
-                    //     button.text(city).val(city)
-                    //     $("#city-search").append(button)
-
-
-                // }
-                    
 
                 })
-
 
             }
         })
