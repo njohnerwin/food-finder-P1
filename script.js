@@ -73,6 +73,7 @@ $(document).ready(function () {
                     var rest8 = rests.nearby_restaurants[8].restaurant.name
                     console.log(rest8)
 
+                    // add restaurant list to array 
                     restList = [rest0, rest1, rest2, rest3, rest4, rest5, rest6, rest7, rest8];
                     console.log(restList)
                     res1 = rests.nearby_restaurants[0].restaurant.name;
@@ -86,7 +87,7 @@ $(document).ready(function () {
                     menuUrl = rests.nearby_restaurants[0].restaurant.menu_url
 
                     // $("#res").attr("href", rests.nearby_restaurants[0].restaurant.menu_url);
-              
+
 
                     console.log(res1)
                     console.log(res1C)
@@ -108,7 +109,7 @@ $(document).ready(function () {
                         $("#res0").append("<p>" + "Address: " + address + "</p>")
                         $("#res0").append("<p>" + "User Ratings: " + userRatings + "</p>")
                         $("#res0").append("<p>" + "Restaurant Rating: " + userRate + "</p>")
-                        $("#res0").append("<p>" + "Menu: " + '"<a href="'+rests.nearby_restaurants[0].restaurant.menu_url + '">Menu</a>"' + "</p>")
+                        $("#res0").append("<p>" + "Menu: " + '"<a href="' + rests.nearby_restaurants[0].restaurant.menu_url + '">Menu</a>"' + "</p>")
                         // '"<a href="'+rests.nearby_restaurants[1].restaurant.menu_url + '">Menu</a>"'
                     }
 
@@ -122,12 +123,10 @@ $(document).ready(function () {
                         $("#res1").append("<p>" + "Address: " + address + "</p>")
                         $("#res1").append("<p>" + "User Ratings: " + rests.nearby_restaurants[1].restaurant.user_rating.aggregate_rating + "</p>")
                         $("#res1").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[1].restaurant.user_rating.rating_text + "</p>")
-                        $("#res1").append("<p>" + "Menu: " + '"<a href="'+rests.nearby_restaurants[1].restaurant.menu_url + '">Menu</a>"' + "</p>")
+                        $("#res1").append("<p>" + "Menu: " + '"<a href="' + rests.nearby_restaurants[1].restaurant.menu_url + '">Menu</a>"' + "</p>")
                         // $("#res1").html('"<a href="'+rests.nearby_restaurants[1].restaurant.menu_url + '">Menu</a>"')  
-
-
-                        // $('#my-link').html('<a href="http://www.google.com">Google</a>')
                     }
+
                     // append restaurant at index 2 info to page
                     function restCard2() {
                         $("#res2").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[2].restaurant.name + "</p>")
@@ -138,8 +137,9 @@ $(document).ready(function () {
                         $("#res2").append("<p>" + "Address: " + address + "</p>")
                         $("#res2").append("<p>" + "User Ratings: " + rests.nearby_restaurants[2].restaurant.user_rating.aggregate_rating + "</p>")
                         $("#res2").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[2].restaurant.user_rating.rating_text + "</p>")
-                        $("#res2").append("<p>" + "Menu: " + '"<a href="'+rests.nearby_restaurants[2].restaurant.menu_url + '">Menu</a>"' + "</p>")
+                        $("#res2").append("<p>" + "Menu: " + '"<a href="' + rests.nearby_restaurants[2].restaurant.menu_url + '">Menu</a>"' + "</p>")
                     }
+
                     // append restaurant at index 3 info to page
                     function restCard3() {
                         $("#res3").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[3].restaurant.name + "</p>")
@@ -150,8 +150,9 @@ $(document).ready(function () {
                         $("#res3").append("<p>" + "Address: " + address + "</p>")
                         $("#res3").append("<p>" + "User Ratings: " + rests.nearby_restaurants[3].restaurant.user_rating.aggregate_rating + "</p>")
                         $("#res3").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[3].restaurant.user_rating.rating_text + "</p>")
-                        $("#res3").append("<p>" + "Menu: " + '"<a href="'+rests.nearby_restaurants[3].restaurant.menu_url + '">Menu</a>"' + "</p>")
+                        $("#res3").append("<p>" + "Menu: " + '"<a href="' + rests.nearby_restaurants[3].restaurant.menu_url + '">Menu</a>"' + "</p>")
                     }
+
                     // render list of restaurants based on city search
                     renderRestaurantList();
                     function renderRestaurantList() {
@@ -168,60 +169,40 @@ $(document).ready(function () {
                         //     $("#res").append("<div>" + restList[8] + "</div>")
 
                         //     restList.splice(restList[0]);
-
                         // }
+                            
+                    
                         // loop through array and append list 
-                        for (var i = 0; i < restList.length; i++) {
-                            var restL = $("<ul>");
-                            // $("#res").append("<ul>" + restList[i] + "</ul>")
                             console.log(cityName)
-                            if (restList[0]) {
+                            if (cityName) {
                                 restCard0();
                                 restCard1()
                                 restCard2()
                                 restCard3()
-
-                                // use splice method to remove duplication 
-                                restList.splice(restList[0]);
                             } else {
 
                             }
-                        // console.log(restList[i])
 
                         }
+                       
+            
+                     // sort restaurant based on delivery options
+                     deliveryOption();
+                     function deliveryOption() {
 
-                    };
+                        if (cityName) 
 
+                        
+                        console.log(rests)
+                         console.log(this.nearby_restaurants)
+                     }
+                    
                 })
-
+               
             }
+            
         })
 
     });
+
 });
-
-
- // id = rests.establishments[0].establishment.id
-                    // console.log(id)
-
-                    // console.log(entityType)
-                    // api call to get resturants details
-                    // var ids = id
-                    // console.log(ids)
-                    // var queryURL2 = `https://developers.zomato.com/api/v2.1/location_details?entity_id=${id}&entity_type=${entityType}`
-
-                    // console.log(queryURL2)
-
-                    // // // https://developers.zomato.com/api/v2.1/location_details?entity_id=281&entity_type=city
-
-                    // $.ajax({
-                    //     url: queryURL2,
-                    //     method: "GET",
-                    //     headers: {
-                    //         "user-key": api,
-                    //         "accept": "application/json"
-                    //     }
-                    // }).then(function (details) {
-                    //     console.log(details)
-
-                    // })
