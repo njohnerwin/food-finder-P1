@@ -5,6 +5,16 @@ $(document).ready(function () {
     var lat = "";
     var lon = "";
     var id = "";
+    var restList = [];
+    console.log(restList)
+    var res1 = "";
+    var res1C = "";
+    var r1Ac = "";
+    var delivery = "";
+    var takeOut = "";
+    var address = "";
+    var userRatings = "";
+    var userRate = "";
 
     var apiK = "e1014510ebbf942b1f1d07d44fa4f59b";
 
@@ -50,15 +60,38 @@ $(document).ready(function () {
                     }
                 }).then(function (rests) {
                     console.log(rests)
-                    // create variables to hold restaurant info
-                    var res1 = rests.nearby_restaurants[0].restaurant.name
-                    var res1C = rests.nearby_restaurants[0].restaurant.cuisines
-                    var r1Ac = rests.nearby_restaurants[0].restaurant.average_cost_for_two
-                    var delivery = rests.nearby_restaurants[0].restaurant.R.has_menu_status.delivery
-                    var takeOut = rests.nearby_restaurants[0].restaurant.R.has_menu_status.takeaway
-                    var address = rests.nearby_restaurants[0].restaurant.location.address
-                    var userRatings = rests.nearby_restaurants[0].restaurant.user_rating.aggregate_rating
-                    var userRate = rests.nearby_restaurants[0].restaurant.user_rating.rating_text
+                    // create variables to hold restaurant list info
+                    var rest0 = rests.nearby_restaurants[0].restaurant.name
+                    console.log(rest0)
+                    var rest1 = rests.nearby_restaurants[1].restaurant.name
+                    var rest2 = rests.nearby_restaurants[2].restaurant.name
+                    var rest3 = rests.nearby_restaurants[3].restaurant.name
+                    var rest4 = rests.nearby_restaurants[4].restaurant.name 
+                    var rest5 = rests.nearby_restaurants[5].restaurant.name
+                    var rest6 = rests.nearby_restaurants[6].restaurant.name
+                    var rest7 = rests.nearby_restaurants[7].restaurant.name
+                    var rest8 = rests.nearby_restaurants[8].restaurant.name
+                    console.log(rest8)
+
+                    restList = [rest0, rest1, rest2, rest3, rest4, rest5, rest6, rest7, rest8];
+                    console.log(restList)
+                    res1 = rests.nearby_restaurants[0].restaurant.name;
+                    res1C = rests.nearby_restaurants[0].restaurant.cuisines;
+                    r1Ac = rests.nearby_restaurants[0].restaurant.average_cost_for_two;
+                    delivery = rests.nearby_restaurants[0].restaurant.R.has_menu_status.delivery;
+                    takeOut = rests.nearby_restaurants[0].restaurant.R.has_menu_status.takeaway;
+                    address = rests.nearby_restaurants[0].restaurant.location.address;
+                    userRatings = rests.nearby_restaurants[0].restaurant.user_rating.aggregate_rating;
+                    userRate = rests.nearby_restaurants[0].restaurant.user_rating.rating_text;
+
+                    console.log(res1)
+                    console.log(res1C)
+                    console.log(r1Ac)
+                    console.log(delivery)
+                    console.log(takeOut)
+                    console.log(address)
+                    console.log(userRatings)
+                    console.log(userRate)
 
                     // append restaurant info to page
                     $("#res").append("<p>" + "Restaurant Name: " + res1 + "</p>")
@@ -70,26 +103,38 @@ $(document).ready(function () {
                     $("#res").append("<p>" + "User Ratings: " + userRatings + "</p>")
                     $("#res").append("<p>" + "Restaurant Rating: " + userRate + "</p>")
                    
+                    // render list of restaurants based on city search
+                    renderRestaurantList();
+                    function renderRestaurantList() {
+                        console.log(restList)
+                        // $.each(restList, function (i, resturants) { 
+                        //     $("#res").append("<div>" + restList + "</div>");
+
+                        // })
+                        // loop through array and append list 
+                        for (var i = 0; i < restList.length; i++){
+                            var restL = $("<ul>");
+                            $("#res").append("<ul>" + restList[i] + "</ul>")
+                            
+                            console.log(restList[i])
+                            
+                        }
+                
+        
+                    };
+                    // $.each(cityList, function (i, city) {
+                    //     var button = $("<br><button>")
+                    //     button.addClass("cities")
+                    //     button.text(city).val(city)
+                    //     $("#city-search").append(button)
 
 
-
-                    // $("#errorSuccess").append("<b>" + aux + "</b>");
-                    // var button = $("<br><button>")
-                    // button.addClass("cities")
-                    // button.text(city).val(city)
-                    // $("#city-search").append(button)
-
-
-                    console.log(res1)
-                    console.log(res1C)
-                    console.log(r1Ac)
-                    console.log(delivery)
-                    console.log(takeOut)
-                    console.log(address)
-                    console.log(userRatings)
-                    console.log(userRate)
+                // }
+                    
 
                 })
+
+
             }
         })
 
