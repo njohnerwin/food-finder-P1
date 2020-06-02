@@ -3,7 +3,7 @@ var city;
 var state;
 var lat;
 var lon;
-var r1,r2,r3,r4,r5,r6;
+var r1,r2,r3,r4,r5,r6,r7,r8,r9,r10;
 var im1;
 
 
@@ -74,8 +74,11 @@ function start(){
                 r4 = resturants.nearby_restaurants[3].restaurant.name;
                 r5 = resturants.nearby_restaurants[4].restaurant.name;
                 r6 = resturants.nearby_restaurants[5].restaurant.name;
-
-                im1 = resturants.nearby_restaurants[0].restaurant.featured_image;
+                r7 = resturants.nearby_restaurants[6].restaurant.name;
+                r8 = resturants.nearby_restaurants[7].restaurant.name;
+                r9 = resturants.nearby_restaurants[8].restaurant.name;
+                r10 = resturants.nearby_restaurants[9].restaurant.name;
+                
 
                 update();
             });
@@ -86,15 +89,11 @@ function start(){
 
 
 
+
 //function to update html
 function update(){
+    //add items to html here
 
-    //updating html elemnts with info rettrieved
-    //$("#iptxt").text(ipInfo);
-    $("#localtxt").text(city + ", " + state);
-    $("#food").text(r1 + ", " + r2 + ", " + r3 + ", " + r4 + ", " + r5 + ", " + r6);
-
-    $("#res").css("background-image", im1)
 }
 
 start();
