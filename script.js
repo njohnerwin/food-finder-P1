@@ -83,6 +83,10 @@ $(document).ready(function () {
                     address = rests.nearby_restaurants[0].restaurant.location.address;
                     userRatings = rests.nearby_restaurants[0].restaurant.user_rating.aggregate_rating;
                     userRate = rests.nearby_restaurants[0].restaurant.user_rating.rating_text;
+                    menuUrl = rests.nearby_restaurants[0].restaurant.menu_url
+
+                    // $("#res").attr("href", rests.nearby_restaurants[0].restaurant.menu_url);
+              
 
                     console.log(res1)
                     console.log(res1C)
@@ -92,50 +96,61 @@ $(document).ready(function () {
                     console.log(address)
                     console.log(userRatings)
                     console.log(userRate)
+                    console.log(menuUrl)
 
                     // append restaurant at index 0 info to page
                     function restCard0() {
-                        $("#res").append("<p>" + "Restaurant Name: " + res1 + "</p>")
-                        $("#res").append("<p>" + "Cuisine: " + res1C + "</p>")
-                        $("#res").append("<p>" + "Average Cost For Two: " + "$" + r1Ac + "</p>")
-                        $("#res").append("<p>" + "Delivery: " + delivery + "</p>")
-                        $("#res").append("<p>" + "Takeout: " + takeOut + "</p>")
-                        $("#res").append("<p>" + "Address: " + address + "</p>")
-                        $("#res").append("<p>" + "User Ratings: " + userRatings + "</p>")
-                        $("#res").append("<p>" + "Restaurant Rating: " + userRate + "</p>")
+                        $("#res0").append("<p>" + "Restaurant Name: " + res1 + "</p>")
+                        $("#res0").append("<p>" + "Cuisine: " + res1C + "</p>")
+                        $("#res0").append("<p>" + "Average Cost For Two: " + "$" + r1Ac + "</p>")
+                        $("#res0").append("<p>" + "Delivery: " + delivery + "</p>")
+                        $("#res0").append("<p>" + "Takeout: " + takeOut + "</p>")
+                        $("#res0").append("<p>" + "Address: " + address + "</p>")
+                        $("#res0").append("<p>" + "User Ratings: " + userRatings + "</p>")
+                        $("#res0").append("<p>" + "Restaurant Rating: " + userRate + "</p>")
+                        $("#res0").append("<p>" + "Menu: " + '"<a href="'+rests.nearby_restaurants[0].restaurant.menu_url + '">Menu</a>"' + "</p>")
+                        // '"<a href="'+rests.nearby_restaurants[1].restaurant.menu_url + '">Menu</a>"'
                     }
+
                     // append restaurant at index 1 info to page
                     function restCard1() {
-                        $("#res").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[1].restaurant.name + "</p>")
-                        $("#res").append("<p>" + "Cuisine: " + rests.nearby_restaurants[1].restaurant.cuisines + "</p>")
-                        $("#res").append("<p>" + "Average Cost For Two: " + "$" + rests.nearby_restaurants[1].restaurant.average_cost_for_two + "</p>")
-                        $("#res").append("<p>" + "Delivery: " + rests.nearby_restaurants[1].restaurant.R.has_menu_status.delivery + "</p>")
-                        $("#res").append("<p>" + "Takeout: " + rests.nearby_restaurants[1].restaurant.R.has_menu_status.takeaway + "</p>")
-                        $("#res").append("<p>" + "Address: " + address + "</p>")
-                        $("#res").append("<p>" + "User Ratings: " + rests.nearby_restaurants[1].restaurant.user_rating.aggregate_rating + "</p>")
-                        $("#res").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[1].restaurant.user_rating.rating_text + "</p>")
+                        $("#res1").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[1].restaurant.name + "</p>")
+                        $("#res1").append("<p>" + "Cuisine: " + rests.nearby_restaurants[1].restaurant.cuisines + "</p>")
+                        $("#res1").append("<p>" + "Average Cost For Two: " + "$" + rests.nearby_restaurants[1].restaurant.average_cost_for_two + "</p>")
+                        $("#res1").append("<p>" + "Delivery: " + rests.nearby_restaurants[1].restaurant.R.has_menu_status.delivery + "</p>")
+                        $("#res1").append("<p>" + "Takeout: " + rests.nearby_restaurants[1].restaurant.R.has_menu_status.takeaway + "</p>")
+                        $("#res1").append("<p>" + "Address: " + address + "</p>")
+                        $("#res1").append("<p>" + "User Ratings: " + rests.nearby_restaurants[1].restaurant.user_rating.aggregate_rating + "</p>")
+                        $("#res1").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[1].restaurant.user_rating.rating_text + "</p>")
+                        $("#res1").append("<p>" + "Menu: " + '"<a href="'+rests.nearby_restaurants[1].restaurant.menu_url + '">Menu</a>"' + "</p>")
+                        // $("#res1").html('"<a href="'+rests.nearby_restaurants[1].restaurant.menu_url + '">Menu</a>"')  
+
+
+                        // $('#my-link').html('<a href="http://www.google.com">Google</a>')
                     }
                     // append restaurant at index 2 info to page
                     function restCard2() {
-                        $("#res").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[2].restaurant.name + "</p>")
-                        $("#res").append("<p>" + "Cuisine: " + rests.nearby_restaurants[2].restaurant.cuisines + "</p>")
-                        $("#res").append("<p>" + "Average Cost For Two: " + "$" + rests.nearby_restaurants[2].restaurant.average_cost_for_two + "</p>")
-                        $("#res").append("<p>" + "Delivery: " + rests.nearby_restaurants[2].restaurant.R.has_menu_status.delivery + "</p>")
-                        $("#res").append("<p>" + "Takeout: " + rests.nearby_restaurants[2].restaurant.R.has_menu_status.takeaway + "</p>")
-                        $("#res").append("<p>" + "Address: " + address + "</p>")
-                        $("#res").append("<p>" + "User Ratings: " + rests.nearby_restaurants[2].restaurant.user_rating.aggregate_rating + "</p>")
-                        $("#res").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[2].restaurant.user_rating.rating_text + "</p>")
+                        $("#res2").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[2].restaurant.name + "</p>")
+                        $("#res2").append("<p>" + "Cuisine: " + rests.nearby_restaurants[2].restaurant.cuisines + "</p>")
+                        $("#res2").append("<p>" + "Average Cost For Two: " + "$" + rests.nearby_restaurants[2].restaurant.average_cost_for_two + "</p>")
+                        $("#res2").append("<p>" + "Delivery: " + rests.nearby_restaurants[2].restaurant.R.has_menu_status.delivery + "</p>")
+                        $("#res2").append("<p>" + "Takeout: " + rests.nearby_restaurants[2].restaurant.R.has_menu_status.takeaway + "</p>")
+                        $("#res2").append("<p>" + "Address: " + address + "</p>")
+                        $("#res2").append("<p>" + "User Ratings: " + rests.nearby_restaurants[2].restaurant.user_rating.aggregate_rating + "</p>")
+                        $("#res2").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[2].restaurant.user_rating.rating_text + "</p>")
+                        $("#res2").append("<p>" + "Menu: " + '"<a href="'+rests.nearby_restaurants[2].restaurant.menu_url + '">Menu</a>"' + "</p>")
                     }
                     // append restaurant at index 3 info to page
                     function restCard3() {
-                        $("#res").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[3].restaurant.name + "</p>")
-                        $("#res").append("<p>" + "Cuisine: " + rests.nearby_restaurants[3].restaurant.cuisines + "</p>")
-                        $("#res").append("<p>" + "Average Cost For Two: " + "$" + rests.nearby_restaurants[3].restaurant.average_cost_for_two + "</p>")
-                        $("#res").append("<p>" + "Delivery: " + rests.nearby_restaurants[3].restaurant.R.has_menu_status.delivery + "</p>")
-                        $("#res").append("<p>" + "Takeout: " + rests.nearby_restaurants[3].restaurant.R.has_menu_status.takeaway + "</p>")
-                        $("#res").append("<p>" + "Address: " + address + "</p>")
-                        $("#res").append("<p>" + "User Ratings: " + rests.nearby_restaurants[3].restaurant.user_rating.aggregate_rating + "</p>")
-                        $("#res").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[3].restaurant.user_rating.rating_text + "</p>")
+                        $("#res3").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[3].restaurant.name + "</p>")
+                        $("#res3").append("<p>" + "Cuisine: " + rests.nearby_restaurants[3].restaurant.cuisines + "</p>")
+                        $("#res3").append("<p>" + "Average Cost For Two: " + "$" + rests.nearby_restaurants[3].restaurant.average_cost_for_two + "</p>")
+                        $("#res3").append("<p>" + "Delivery: " + rests.nearby_restaurants[3].restaurant.R.has_menu_status.delivery + "</p>")
+                        $("#res3").append("<p>" + "Takeout: " + rests.nearby_restaurants[3].restaurant.R.has_menu_status.takeaway + "</p>")
+                        $("#res3").append("<p>" + "Address: " + address + "</p>")
+                        $("#res3").append("<p>" + "User Ratings: " + rests.nearby_restaurants[3].restaurant.user_rating.aggregate_rating + "</p>")
+                        $("#res3").append("<p>" + "Restaurant Rating: " + rests.nearby_restaurants[3].restaurant.user_rating.rating_text + "</p>")
+                        $("#res3").append("<p>" + "Menu: " + '"<a href="'+rests.nearby_restaurants[3].restaurant.menu_url + '">Menu</a>"' + "</p>")
                     }
                     // render list of restaurants based on city search
                     renderRestaurantList();
