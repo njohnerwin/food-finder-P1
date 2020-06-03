@@ -11,7 +11,7 @@ body {
 
 #logo-header {
     position: relative;
-    margin-top: -100px;
+    margin-top: 30px;
     margin-bottom: 50px;
     margin-left: 30px;
     color: white;
@@ -159,32 +159,46 @@ body {
 /*version five of background options for header and API info*/
 
 #restInfo {
-    background-image: url();
-    border: black solid 2px;
-    border-radius: 3px;
-    background-color: rgb(206, 221, 240);
     margin-top: 20px;
-    margin-left: 70px;
-    padding-left: 30px;
     padding-top: 20px;
-    height: 600px;
-    width:  800px;
+    width:  100%
+}
+
+#card {
+    border: black solid 2px;
+    background-color: rgb(206, 221, 240);
+    margin: 10px;
+    padding: 15px;
+}
+
+#card h2 {
+    text-align: center;
+    margin: 10px;
+}
+
+#card a {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+
+
+}
+
+#card p {
+    margin: 10px;
 }
 
 .top-bar {
     position: relative;
     height: 150px;
-    width: 1500px;
-    padding-top: 100px;
-    padding-bottom: 600px;
-    margin-top: -550px;
+    width: 100%;
+    margin-bottom: 50px;
     display: flex;
 }
 
 .top-bar::before {
     content: "";
     background-image: url(../assets/images/restaurant-1308007_1920.jpg);
-    background-size: 80em;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -198,6 +212,12 @@ body {
     margin: 0 auto;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 1000px) {
+    .grid-container {
+        width: 100%;
+    }
 
+    #logo-header {
+        font-size: 30px;
+    }
 }
