@@ -32,7 +32,6 @@ body {
     height: 600px;
     width:  800px;
 }
-
 .top-bar {
     background-image: url(../assets/images/cook-366875_1920.jpg);
     height: 175px;
@@ -42,7 +41,6 @@ body {
     margin-top: -750px;
     opacity: .7;
 }
-
 .top-bar::before {
     content: "";
     position: absolute;
@@ -51,7 +49,6 @@ body {
     bottom: 785px;
     left: 0px;
     background-color: rgba(10, 34, 85, 0.75);
-
 }*/
 
 /*version two of background options for header and API info*/
@@ -68,7 +65,6 @@ body {
     height: 600px;
     width:  800px;
 }
-
 .top-bar {
     position: relative;
     height: 150px;
@@ -78,7 +74,6 @@ body {
     margin-top: -150px;
     display: flex;
 }
-
 .top-bar::before {
     content: "";
     background-image: url(../assets/images/lisbon-2660748_1920.jpg);
@@ -105,7 +100,6 @@ body {
     height: 600px;
     width:  800px;
 }
-
 .top-bar {
     position: relative;
     height: 150px;
@@ -115,7 +109,6 @@ body {
     margin-top: -550px;
     display: flex;
 }
-
 .top-bar::before {
     content: "";
     background-image: url(../assets/images/food-4397860_1920.jpg);
@@ -142,7 +135,6 @@ body {
     height: 600px;
     width:  800px;
 }
-
 .top-bar {
     position: relative;
     height: 150px;
@@ -152,7 +144,6 @@ body {
     margin-top: -550px;
     display: flex;
 }
-
 .top-bar::before {
     content: "";
     background-image: url(../assets/images/bar-2314410_1920.jpg);
