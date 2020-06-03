@@ -7,8 +7,6 @@ var r1,r2,r3,r4,r5,r6;
 var im1;
 
 
-
-
 function start(){
 
     //getting users ip
@@ -22,16 +20,12 @@ function start(){
         //adding users ip to the link
         var ipLink = "http://ip-api.com/json/" + ipInfo;
 
-
-
-
         //getting users location based on ip
         $.ajax({
             url: ipLink,
             method: "GET"
         }).then(function getInfo(info){
             console.log(info);
-
 
             //asigning variables for loction
             city = info.city;
@@ -42,7 +36,6 @@ function start(){
 
             //api key for zomato
             var key = "0a122aa8b91face2a9097e2f2b6aa1e5";
-
 
             //String adding lon and lat
             var resString = `lat=${lat}&lon=${lon}`
@@ -82,7 +75,22 @@ function start(){
 
         });
     });  
+
+    var city = prompt("Enter a city name!: ");
+    var api = "527c121c5d125ed8860ba0873283b0c9"
+
+    var queryURL = `https://developers.zomato.com/api/v2.1/cities?q=${city}&apikey=${api}`
+
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+    }).then(function (data) {
+        console.log(data)
+
+    })
+    
 }
+
 
 
 
