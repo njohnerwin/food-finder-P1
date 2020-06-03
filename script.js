@@ -1,7 +1,6 @@
 $(document).ready(function () {
     // use variables to hold results to push to zomato api call
     var cityName = "";
-    var stateCode = "";
     var lat = "";
     var lon = "";
     var id = "";
@@ -22,7 +21,6 @@ $(document).ready(function () {
     $(".save").on("click", function (event) {
         event.preventDefault();
         cityName = $("#locationInput").val().trim();
-
 
         // AJAX call to the run OpenWeatherMap API to use city name as search criteria
         var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiK}`;
@@ -118,9 +116,9 @@ $(document).ready(function () {
                         $("#address2").append(" " + rests.nearby_restaurants[1].restaurant.location.address);
                         $("#delivery2").append(rests.nearby_restaurants[1].restaurant.R.has_menu_status.delivery);
                         $("#takeout2").append(rests.nearby_restaurants[1].restaurant.R.has_menu_status.takeaway)
-                        $("#price2").append(rests.nearby_restaurants[1].restaurant.average_cost_for_two)
-                        $("#rating2").append("$" +rests.nearby_restaurants[1].restaurant.user_rating.aggregate_rating)
-                        $("#url2").append("<p>" + "Menu: " + '"<a href="' + rests.nearby_restaurants[1].restaurant.menu_url + '">Menu</a>"' + "</p>")
+                        $("#price2").append(":"+ " $"+rests.nearby_restaurants[1].restaurant.average_cost_for_two)
+                        $("#rating2").append(rests.nearby_restaurants[1].restaurant.user_rating.aggregate_rating)
+                        $("#url2").append('"<a href="' + rests.nearby_restaurants[1].restaurant.menu_url + '">Menu</a>"')
                        
                     }
 
@@ -131,27 +129,27 @@ $(document).ready(function () {
                         $("#address3").append(" " + rests.nearby_restaurants[2].restaurant.location.address);
                         $("#delivery3").append(rests.nearby_restaurants[2].restaurant.R.has_menu_status.delivery);
                         $("#takeout3").append(rests.nearby_restaurants[2].restaurant.R.has_menu_status.takeaway)
-                        $("#price3").append("$" +rests.nearby_restaurants[2].restaurant.average_cost_for_two)
+                        $("#price3").append(":"+ " $"+ +rests.nearby_restaurants[2].restaurant.average_cost_for_two)
                         $("#rating3").append(rests.nearby_restaurants[2].restaurant.user_rating.aggregate_rating)
-                        $("#url3").append("<p>" + "Menu: " + '"<a href="' + rests.nearby_restaurants[2].restaurant.menu_url + '">Menu</a>"' + "</p>")
+                        $("#url3").append('"<a href="' + rests.nearby_restaurants[2].restaurant.menu_url + '">Menu</a>"')
                     }
 
                     // append restaurant at index 3 info to page
                     function restCard3() {
-                        $("#name4").append(":"+ " " + rests.nearby_restaurants[4].restaurant.name);
-                        $("#cuisine4").append(":"+ " " + rests.nearby_restaurants[4].restaurant.cuisines);
-                        $("#address4").append(" " + rests.nearby_restaurants[4].restaurant.location.address);
-                        $("#delivery4").append(rests.nearby_restaurants[4].restaurant.R.has_menu_status.delivery);
-                        $("#takeout4").append(rests.nearby_restaurants[4].restaurant.R.has_menu_status.takeaway)
-                        $("#price4").append(rests.nearby_restaurants[4].restaurant.average_cost_for_two)
-                        $("#rating4").append("$" + rests.nearby_restaurants[4].restaurant.user_rating.aggregate_rating)
-                        $("#url4").append("<p>" + "Menu: " + '"<a href="' + rests.nearby_restaurants[4].restaurant.menu_url + '">Menu</a>"' + "</p>")
+                        $("#name4").append(":"+ " " + rests.nearby_restaurants[3].restaurant.name);
+                        $("#cuisine4").append(":"+ " " + rests.nearby_restaurants[3].restaurant.cuisines);
+                        $("#address4").append(" " + rests.nearby_restaurants[3].restaurant.location.address);
+                        $("#delivery4").append(rests.nearby_restaurants[3].restaurant.R.has_menu_status.delivery);
+                        $("#takeout4").append(rests.nearby_restaurants[3].restaurant.R.has_menu_status.takeaway)
+                        $("#price4").append(":"+ " $"+rests.nearby_restaurants[3].restaurant.average_cost_for_two)
+                        $("#rating4").append(rests.nearby_restaurants[3].restaurant.user_rating.aggregate_rating)
+                        $("#url4").append('"<a href="' + rests.nearby_restaurants[3].restaurant.menu_url + '">Menu</a>"')
                     }
 
                     // render list of restaurants based on city search
-                    renderRestaurantList();
-                    function renderRestaurantList() {
-                        console.log(restList)
+                    // renderRestaurantList();
+                    // function renderRestaurantList() {
+                    //     console.log(restList)
                         // for (var i = 0; i < restList.length; i++) {
                         //     $("#res").append("<div>" + restList[0] + "</div>");
                         //     $("#res").append("<div>" + restList[1] + "</div>")
@@ -166,9 +164,12 @@ $(document).ready(function () {
                         //     restList.splice(restList[0]);
                         // }
                             
-                    
+                    // }
+
+                    renderRestaurantDetails()
+                    function renderRestaurantDetails () {
                         // loop through array and append list 
-                            console.log(cityName)
+                            // console.log(cityName)
                             if (cityName) {
                                 restCard0();
                                 restCard1()
