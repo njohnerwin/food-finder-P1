@@ -180,8 +180,6 @@ body {
     display: inline-block;
     margin: 10px;
     text-align: center;
-
-
 }
 
 #card p {
@@ -200,16 +198,27 @@ body {
     content: "";
     background-image: url(../assets/images/restaurant-1308007_1920.jpg);
     position: absolute;
-    top: 0px;
+    top: -300px;
     right: 0px;
     bottom: 0px;
-    left: 0px;
+    left: -300px;
     opacity: .7;
+}
+
+button {
+    background-color: rgb(104, 104, 153);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .grid-container {
     width: 70%;
     margin: 0 auto;
+}
+
+#locationInput {
+    width: 300px;
 }
 
 @media screen and (max-width: 1000px) {
