@@ -72,7 +72,6 @@ function start(){
         });
     });  
 
-    var city = prompt("Enter a city name!: ");
     var api = "527c121c5d125ed8860ba0873283b0c9"
 
     var queryURL = `https://developers.zomato.com/api/v2.1/cities?q=${city}&apikey=${api}`
