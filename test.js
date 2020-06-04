@@ -69,15 +69,8 @@ function start(){
 
                 //asigning resturants to there variables
                 r1 = resturants.nearby_restaurants[0].restaurant.name;
-                r2 = resturants.nearby_restaurants[1].restaurant.name;
-                r3 = resturants.nearby_restaurants[2].restaurant.name;
-                r4 = resturants.nearby_restaurants[3].restaurant.name;
-                r5 = resturants.nearby_restaurants[4].restaurant.name;
-                r6 = resturants.nearby_restaurants[5].restaurant.name;
-                r7 = resturants.nearby_restaurants[6].restaurant.name;
-                r8 = resturants.nearby_restaurants[7].restaurant.name;
-                r9 = resturants.nearby_restaurants[8].restaurant.name;
-                r10 = resturants.nearby_restaurants[9].restaurant.name;
+                a1 = resturants.nearby_restaurants[0].restaurant.location.address;
+                c1 = resturants.nearby_restaurants[0].restaurant.price_range;
                 
 
                 update();
@@ -89,11 +82,12 @@ function start(){
 
 
 
-
 //function to update html
 function update(){
     //add items to html here
-
+    $("#name1").text(r1);
+    $("#address1").text(a1);
+    $("#averCost1").text(c1);
 }
 
 start();
