@@ -1,4 +1,4 @@
-# Restaurant finder based on location
+    # Restaurant finder based on location
 
 - Based on the user's location
 - Maybe also input other locations
