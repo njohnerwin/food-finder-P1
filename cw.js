@@ -98,50 +98,50 @@ $(document).ready(function () {
 
                     // append restaurant at index 0 info to page
                     function restCard0() {
-                        $("#name1").append(":"+ " "+res1)
-                        $("#cuisine1").append(":"+ " "+res1C)
-                        $("#address1").append( " "+address)
-                        $("#delivery1").append(":"+ " "+"Yes")
-                        $("#takeout1").append(":"+ " "+ "Yes")
-                        $("#price1").append(":"+ " $"+r1Ac)
-                        $("#rating1").append(" "+userRatings)
+                        $("#name1").append(":" + " " + rests.nearby_restaurants[0].restaurant.name);
+                        $("#cuisine1").append(":" + " " + rests.nearby_restaurants[0].restaurant.cuisines);
+                        $("#address1").append(" " + rests.nearby_restaurants[0].restaurant.location.address);
+                        $("#delivery1").append(rests.nearby_restaurants[0].restaurant.R.has_menu_status.delivery);
+                        $("#takeout1").append(rests.nearby_restaurants[0].restaurant.R.has_menu_status.takeaway)
+                        $("#price1").append(":" + " $" + rests.nearby_restaurants[0].restaurant.average_cost_for_two)
+                        $("#rating1").append(rests.nearby_restaurants[0].restaurant.user_rating.aggregate_rating)
                         $("#url1").append('"<a href="' + rests.nearby_restaurants[0].restaurant.menu_url + '">Menu</a>"')
                         // '"<a href="'+rests.nearby_restaurants[1].restaurant.menu_url + '">Menu</a>"'
                     }
-                    
+
                     // append restaurant at index 1 info to page
                     function restCard1() {
-                        $("#name2").append(":"+ " " + rests.nearby_restaurants[1].restaurant.name);
-                        $("#cuisine2").append(":"+ " " + rests.nearby_restaurants[1].restaurant.cuisines);
+                        $("#name2").append(":" + " " + rests.nearby_restaurants[1].restaurant.name);
+                        $("#cuisine2").append(":" + " " + rests.nearby_restaurants[1].restaurant.cuisines);
                         $("#address2").append(" " + rests.nearby_restaurants[1].restaurant.location.address);
                         $("#delivery2").append(rests.nearby_restaurants[1].restaurant.R.has_menu_status.delivery);
                         $("#takeout2").append(rests.nearby_restaurants[1].restaurant.R.has_menu_status.takeaway)
-                        $("#price2").append(":"+ " $"+rests.nearby_restaurants[1].restaurant.average_cost_for_two)
+                        $("#price2").append(":" + " $" + rests.nearby_restaurants[1].restaurant.average_cost_for_two)
                         $("#rating2").append(rests.nearby_restaurants[1].restaurant.user_rating.aggregate_rating)
                         $("#url2").append('"<a href="' + rests.nearby_restaurants[1].restaurant.menu_url + '">Menu</a>"')
-                       
+
                     }
 
                     // append restaurant at index 2 info to page
                     function restCard2() {
-                        $("#nam3").append(":"+ " " + rests.nearby_restaurants[2].restaurant.name);
-                        $("#cuisine3").append(":"+ " " + rests.nearby_restaurants[2].restaurant.cuisines);
+                        $("#nam3").append(":" + " " + rests.nearby_restaurants[2].restaurant.name);
+                        $("#cuisine3").append(":" + " " + rests.nearby_restaurants[2].restaurant.cuisines);
                         $("#address3").append(" " + rests.nearby_restaurants[2].restaurant.location.address);
                         $("#delivery3").append(rests.nearby_restaurants[2].restaurant.R.has_menu_status.delivery);
                         $("#takeout3").append(rests.nearby_restaurants[2].restaurant.R.has_menu_status.takeaway)
-                        $("#price3").append(":"+ " $"+ +rests.nearby_restaurants[2].restaurant.average_cost_for_two)
+                        $("#price3").append(":" + " $" + +rests.nearby_restaurants[2].restaurant.average_cost_for_two)
                         $("#rating3").append(rests.nearby_restaurants[2].restaurant.user_rating.aggregate_rating)
                         $("#url3").append('"<a href="' + rests.nearby_restaurants[2].restaurant.menu_url + '">Menu</a>"')
                     }
 
                     // append restaurant at index 3 info to page
                     function restCard3() {
-                        $("#name4").append(":"+ " " + rests.nearby_restaurants[3].restaurant.name);
-                        $("#cuisine4").append(":"+ " " + rests.nearby_restaurants[3].restaurant.cuisines);
+                        $("#name4").append(":" + " " + rests.nearby_restaurants[3].restaurant.name);
+                        $("#cuisine4").append(":" + " " + rests.nearby_restaurants[3].restaurant.cuisines);
                         $("#address4").append(" " + rests.nearby_restaurants[3].restaurant.location.address);
                         $("#delivery4").append(rests.nearby_restaurants[3].restaurant.R.has_menu_status.delivery);
                         $("#takeout4").append(rests.nearby_restaurants[3].restaurant.R.has_menu_status.takeaway)
-                        $("#price4").append(":"+ " $"+rests.nearby_restaurants[3].restaurant.average_cost_for_two)
+                        $("#price4").append(":" + " $" + rests.nearby_restaurants[3].restaurant.average_cost_for_two)
                         $("#rating4").append(rests.nearby_restaurants[3].restaurant.user_rating.aggregate_rating)
                         $("#url4").append('"<a href="' + rests.nearby_restaurants[3].restaurant.menu_url + '">Menu</a>"')
                     }
@@ -150,53 +150,73 @@ $(document).ready(function () {
                     // renderRestaurantList();
                     // function renderRestaurantList() {
                     //     console.log(restList)
-                        // for (var i = 0; i < restList.length; i++) {
-                        //     $("#res").append("<div>" + restList[0] + "</div>");
-                        //     $("#res").append("<div>" + restList[1] + "</div>")
-                        //     $("#res").append("<div>" + restList[2] + "</div>")
-                        //     $("#res").append("<div>" + restList[3] + "</div>")
-                        //     $("#res").append("<div>" + restList[4] + "</div>")
-                        //     $("#res").append("<div>" + restList[5] + "</div>")
-                        //     $("#res").append("<div>" + restList[6] + "</div>")
-                        //     $("#res").append("<div>" + restList[7] + "</div>")
-                        //     $("#res").append("<div>" + restList[8] + "</div>")
+                    // for (var i = 0; i < restList.length; i++) {
+                    //     $("#res").append("<div>" + restList[0] + "</div>");
+                    //     $("#res").append("<div>" + restList[1] + "</div>")
+                    //     $("#res").append("<div>" + restList[2] + "</div>")
+                    //     $("#res").append("<div>" + restList[3] + "</div>")
+                    //     $("#res").append("<div>" + restList[4] + "</div>")
+                    //     $("#res").append("<div>" + restList[5] + "</div>")
+                    //     $("#res").append("<div>" + restList[6] + "</div>")
+                    //     $("#res").append("<div>" + restList[7] + "</div>")
+                    //     $("#res").append("<div>" + restList[8] + "</div>")
 
-                        //     restList.splice(restList[0]);
-                        // }
-                            
+                    //     restList.splice(restList[0]);
+                    // }
+
                     // }
 
                     renderRestaurantDetails()
-                    function renderRestaurantDetails () {
+                    function renderRestaurantDetails() {
                         // loop through array and append list 
-                            // console.log(cityName)
-                            if (cityName) {
-                                restCard0();
-                                restCard1()
-                                restCard2()
-                                restCard3()
-                            } else {
-
-                            }
+                        // console.log(cityName)
+                        if (cityName) {
+                            restCard0();
+                            restCard1()
+                            restCard2()
+                            restCard3()
+                        } else {
 
                         }
-                       
 
-                     // sort restaurant based on delivery options
-                     deliveryOption();
-                     function deliveryOption() {
+                    }
+                    // Function for displaying restaurant list/data
+                    displayRestaurantOnClick()
+                    function displayRestaurantOnClick() {
+                        console.log(cityName)
+                        cityName = $(this).attr("data-name");
+                        var div = $("<div>")
+                        // var restView = $("#rest-view")
+                        $(".grid-x").append(div)
+                        // Deleting the buttons prior to adding new restaurant to prevent duplication
+                        $(div).addClass("rest-view").empty();
 
-                        if (cityName) 
+                        for (var i = 0; i < restList.length; i++) {
+                            // dynamically generating buttons for each restaurant in the array
+                            var m = $("<button>");
+                            m.addClass("list");
+                            m.attr("data-name", restList[i]);
+                            m.text(restList[i]);
+                            $(".rest-view").append(m);
 
-                        
-                        console.log(rests)
-                         console.log(this.nearby_restaurants)
-                     }
-                    
+                        }
+                    }
+
+                    // sort restaurant based on delivery options
+                    deliveryOption();
+                    function deliveryOption() {
+
+                        if (cityName)
+
+
+                            console.log(rests)
+                        console.log(this.nearby_restaurants)
+                    }
+
                 })
-               
+
             }
-            
+
         })
 
     });
