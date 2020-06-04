@@ -165,40 +165,15 @@ $(document).ready(function () {
                         $("#url4").append('"<a href="' + rests.nearby_restaurants[3].restaurant.menu_url + '">Menu</a>"')
                     }
 
-                  
-
-                    
 
                     // Function for pushing resturant content for each button into the div
                     // displayRestaurantInfo()
                     function displayRestaurantInfo() {
                         var restIDS = $(this).attr("data-name");
-                        // var restaurants = $(this).attr("data-name");
-                        // var res = res1.toString();
-                        // console.log(restaurant)
-
-                        // var restView = $("<div>");
-                        // restView.addClass("restDetail");
-                        // // $("#card4").append(restView)
-                        // $("#card4").append(restView)
-
-                        // $(restView).addClass("restDetail")
-                        // if (res) {
-                        //    $(".restDetail").append("<p>" + "Restaurant Name: " + rests.nearby_restaurants[0].restaurant.name + "</p>")
-                            // $("#name4").text("<p>" + "Restaurant Name: " + rests.nearby_restaurants[0].restaurant.name + "</p>");
-                            // $(".restDetail").append("<p>"+ "Restaurant Name: " + rests.nearby_restaurants[0].restaurant.cuisines+ "</p>");
-                            // $(".restDetail").append("<p>" + rests.nearby_restaurants[0].restaurant.location.address + "</p>");
-                            // $(".restDetail").append("<p>" + rests.nearby_restaurants[0].restaurant.R.has_menu_status.delivery+"</p>");
-                            // $(".restDetail").append(rests.nearby_restaurants[0].restaurant.R.has_menu_status.takeaway+"</p>")
-                            // $(".restDetail").append("<p>" + ":" + " $" + rests.nearby_restaurants[0].restaurant.average_cost_for_two+"</p>")
-                            // $(".restDetail").append("<p>" + rests.nearby_restaurants[0].restaurant.user_rating.aggregate_rating+"</p>")
-                            // $(".restDetail").append("<p>" + '"<a href="' + rests.nearby_restaurants[0].restaurant.menu_url + '">Menu</a>"' + "</p>")
                           
-                       
                         var queryURL = `https://developers.zomato.com/api/v2.1/restaurant?res_id=${restIDS}&apikey=${api}`;
 
                         console.log(queryURL)
-                        // "https://developers.zomato.com/api/v2.1/restaurant?res_id=16782899"
                         $.ajax({
                             url: queryURL,
                             method: "GET"
@@ -206,6 +181,8 @@ $(document).ready(function () {
                             // var restView = $("<div>");
                             // restView.addClass("restDetail");
                             // $(".restlist").append(restView)
+
+                            // empty id's before dumping new info
                             $("#nameRes").empty()
                             $("#cuisineRes").empty()
                             $("#addressRes").empty()
@@ -221,12 +198,11 @@ $(document).ready(function () {
                            $("#ratingRes").append("User rating: " +res.user_rating.aggregate_rating)
                            $("#urlRes").append('"<a href="' + res.menu_url + '">Menu</a>"')
                           
-                      
                             // $(".restDetail").text(JSON.stringify(response));
                             console.log(res)
                         });
                     }
-                // }
+               
                     // Function for displaying restaurant list/data
                     // displayRestaurantList()
                     function displayRestaurantList() {
@@ -253,34 +229,21 @@ $(document).ready(function () {
                         
                     }
 
-
                     // Handles events when each restaurant button is clicked
                     $(".add-rest").on("click", function (event) {
                         event.preventDefault();
                         
                         var rest = $("#locationInput").val().trim();
                         console.log(rest)
-                        // displayRestaurantList()
+                    
                     })
 
                     // // Calling the renderButtons function to display the initial buttons
                     $(document).on("click", ".list", displayRestaurantInfo);
 
-
                     $(".rest-view").empty();
                     displayRestaurantList();
 
-
-                    // sort restaurant based on delivery options
-                    // deliveryOption();
-                    // function deliveryOption() {
-
-
-
-
-                    //         console.log(rests)
-                    //     console.log(this.nearby_restaurants)
-                    // }
 
                 })
 
