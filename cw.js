@@ -81,7 +81,7 @@ $(document).ready(function () {
                     res1ID7 = rests.nearby_restaurants[7].restaurant.id;
                     res1ID8 = rests.nearby_restaurants[8].restaurant.id;
                     // save restaurants ID in array to use in api call
-                  restIDS = [res1ID0, res1ID1, res1ID2, res1ID3, res1ID4, res1ID5, res1ID6, res1ID7, res1ID8];
+                    restIDS = [res1ID0, res1ID1, res1ID2, res1ID3, res1ID4, res1ID5, res1ID6, res1ID7, res1ID8];
 
 
                     // add restaurant list to array 
@@ -170,7 +170,7 @@ $(document).ready(function () {
                     // displayRestaurantInfo()
                     function displayRestaurantInfo() {
                         var restIDS = $(this).attr("data-name");
-                          
+
                         var queryURL = `https://developers.zomato.com/api/v2.1/restaurant?res_id=${restIDS}&apikey=${api}`;
 
                         console.log(queryURL)
@@ -189,33 +189,33 @@ $(document).ready(function () {
                             $("#priceRes").empty();
                             $("#ratingRes").empty();
                             $("#urlRes").empty();
-                           $("#nameRes").text("Restaurant Name: " + res.name);
-                           $("#cuisineRes").text("Cuisine: " + res.cuisines);
-                           $("#addressRes").text("Address: " +res.location.address);
-                           $("#priceRes").text("Price Range: " + "$" + res.average_cost_for_two);
-                        //    $("#deliveryRes").append(": " + res.has_menu_status)
-                        //    $("#takeoutRes").append(": " + res.has_menu_status)
-                           $("#ratingRes").text("User rating: " +res.user_rating.aggregate_rating);
-                           $("#urlRes").html('"<a href="' + res.menu_url + '">Menu</a>"');
-                          
+                            $("#nameRes").text("Restaurant Name: " + res.name);
+                            $("#cuisineRes").text("Cuisine: " + res.cuisines);
+                            $("#addressRes").text("Address: " + res.location.address);
+                            $("#priceRes").text("Price Range: " + "$" + res.average_cost_for_two);
+                            //    $("#deliveryRes").append("Delivery: " + res.has_menu_status)
+                            //    $("#takeoutRes").append("Take-outs: " + res.has_menu_status)
+                            $("#ratingRes").text("User rating: " + res.user_rating.aggregate_rating);
+                            $("#urlRes").html('"<a href="' + res.menu_url + '">Menu</a>"');
+                            // $("#urlRes").this.attr("href", res.menu_url + '">Menu</a>"');
+                            // $(this).attr("href", newUrl);
                             // $(".restDetail").text(JSON.stringify(response));
                             console.log(res)
                         });
                     }
-               
+
                     // Function for displaying restaurant list/data
                     // displayRestaurantList()
                     function displayRestaurantList() {
                         var div = $("<div>")
-                
+
                         $(".grid-x").append(div)
-                        // Deleting the buttons prior to adding new restaurant to prevent duplication
                         $(div).addClass("rest-view");
-                        // restList.splice(restList[0])
+                       // Deleting the buttons prior to adding new restaurant to prevent duplication
                         $(".rest-view").empty();
 
+                        // dynamically generating buttons for each restaurant in the array
                         for (var i = 0; i < restList.length; i++) {
-                            // dynamically generating buttons for each restaurant in the array
                             var m = $("<button>");
                             var id = $("<p>")
                             id.addClass("list")
@@ -226,16 +226,16 @@ $(document).ready(function () {
                             $(".rest-view").append(m);
 
                         }
-                        
+
                     }
 
                     // Handles events when each restaurant button is clicked
                     $(".add-rest").on("click", function (event) {
                         event.preventDefault();
-                        
+
                         var rest = $("#locationInput").val().trim();
                         console.log(rest)
-                    
+
                     })
 
                     // // Calling the renderButtons function to display the initial buttons
