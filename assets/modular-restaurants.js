@@ -39,6 +39,8 @@ $(document).ready(function () {
                 "accept": "application/json"
             }
         }).then(function (rests) {
+            // empty id's before dumping new info
+            $("#restInfo").empty();
             for (var x in rests.nearby_restaurants) {
                 console.log(rests.nearby_restaurants[x]);
                 restaurant = rests.nearby_restaurants[x].restaurant.name;
@@ -65,7 +67,7 @@ $(document).ready(function () {
                 else {
                     takeOutStr = "No";
                 }
-
+                
                 $("#restInfo").append($(`
                     <section class="card" id="card${x}">
                         <h2 id="name${x}">${restaurant}</h2>
@@ -83,7 +85,7 @@ $(document).ready(function () {
         });
     }
 
-    
+
 
     $("#save").on("click", function (event) {
 

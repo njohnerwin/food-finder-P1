@@ -178,27 +178,19 @@ $(document).ready(function () {
                             url: queryURL,
                             method: "GET"
                         }).then(function (res) {
-                            // var restView = $("<div>");
-                            // restView.addClass("restDetail");
-                            // $(".restlist").append(restView)
-
+                            
                             // empty id's before dumping new info
-                            // $("#nameRes").empty();
-                            // $("#cuisineRes").empty();
-                            // $("#addressRes").empty();
-                            // $("#priceRes").empty();
-                            // $("#ratingRes").empty();
-                            // $("#urlRes").empty();
-                            //  reload/refresh page
-        $("#locationInput").val('')
+                            $("#locationInput").val('');
+
                             $("#nameRes").text("Restaurant Name: " + res.name);
                             $("#cuisineRes").text("Cuisine: " + res.cuisines);
                             $("#addressRes").text("Address: " + res.location.address);
                             $("#priceRes").text("Price Range: " + "$" + res.average_cost_for_two);
-                            //    $("#deliveryRes").append("Delivery: " + res.has_menu_status)
-                            //    $("#takeoutRes").append("Take-outs: " + res.has_menu_status)
+                               $("#deliveryRes").text("Delivery: " + res.R.has_menu_status['delivery'])
+                               $("#takeoutRes").append("Take-outs: " + res.R.has_menu_status['takeaway'])
                             $("#ratingRes").text("User rating: " + res.user_rating.aggregate_rating);
                             $("#urlRes").html('"<a href="' + res.menu_url + '">Menu</a>"');
+                            // <a href="#" id="url${x}">Zomato home page</a>
                             // $("#urlRes").this.attr("href", res.menu_url + '">Menu</a>"');
                             // $(this).attr("href", newUrl);
                             // $(".restDetail").text(JSON.stringify(response));
@@ -213,7 +205,7 @@ $(document).ready(function () {
 
                         $(".grid-x").append(div)
                         $(div).addClass("rest-view");
-                       // Deleting the buttons prior to adding new restaurant to prevent duplication
+                        // Deleting the buttons prior to adding new restaurant to prevent duplication
                         $(".rest-view").empty();
 
                         // dynamically generating buttons for each restaurant in the array
