@@ -183,20 +183,20 @@ $(document).ready(function () {
                             // $(".restlist").append(restView)
 
                             // empty id's before dumping new info
-                            $("#nameRes").empty()
-                            $("#cuisineRes").empty()
-                            $("#addressRes").empty()
-                            $("#priceRes").empty()
-                            $("#ratingRes").empty()
-                            $("#urlRes").empty()
-                           $("#nameRes").append("Restaurant Name: " + res.name)
-                           $("#cuisineRes").append("Cuisine: " + res.cuisines)
-                           $("#addressRes").append("Address: " +res.location.address)
-                           $("#priceRes").append("Price Range: " + "$" + res.average_cost_for_two)
+                            $("#nameRes").empty();
+                            $("#cuisineRes").empty();
+                            $("#addressRes").empty();
+                            $("#priceRes").empty();
+                            $("#ratingRes").empty();
+                            $("#urlRes").empty();
+                           $("#nameRes").text("Restaurant Name: " + res.name);
+                           $("#cuisineRes").text("Cuisine: " + res.cuisines);
+                           $("#addressRes").text("Address: " +res.location.address);
+                           $("#priceRes").text("Price Range: " + "$" + res.average_cost_for_two);
                         //    $("#deliveryRes").append(": " + res.has_menu_status)
                         //    $("#takeoutRes").append(": " + res.has_menu_status)
-                           $("#ratingRes").append("User rating: " +res.user_rating.aggregate_rating)
-                           $("#urlRes").append('"<a href="' + res.menu_url + '">Menu</a>"')
+                           $("#ratingRes").text("User rating: " +res.user_rating.aggregate_rating);
+                           $("#urlRes").html('"<a href="' + res.menu_url + '">Menu</a>"');
                           
                             // $(".restDetail").text(JSON.stringify(response));
                             console.log(res)
