@@ -7,6 +7,8 @@ var r1,r2,r3,r4,r5,r6,r7,r8,r9,r10;
 var im1;
 
 
+
+
 function start(){
 
     //getting users ip
@@ -20,12 +22,16 @@ function start(){
         //adding users ip to the link
         var ipLink = "http://ip-api.com/json/" + ipInfo;
 
+
+
+
         //getting users location based on ip
         $.ajax({
             url: ipLink,
             method: "GET"
         }).then(function getInfo(info){
             console.log(info);
+
 
             //asigning variables for loction
             city = info.city;
@@ -36,6 +42,7 @@ function start(){
 
             //api key for zomato
             var key = "0a122aa8b91face2a9097e2f2b6aa1e5";
+
 
             //String adding lon and lat
             var resString = `lat=${lat}&lon=${lon}`
@@ -63,7 +70,25 @@ function start(){
                 //asigning resturants to there variables
                 r1 = resturants.nearby_restaurants[0].restaurant.name;
                 a1 = resturants.nearby_restaurants[0].restaurant.location.address;
-                c1 = resturants.nearby_restaurants[0].restaurant.price_range;
+
+                if(resturants.nearby_restaurants[0].restaurant.price_range == 1)
+                {
+                c1 = "$"
+                }
+                if(resturants.nearby_restaurants[0].restaurant.price_range == 2)
+                {
+                c1 = "$$"
+                }
+                if(resturants.nearby_restaurants[0].restaurant.price_range == 3)
+                {
+                c1 = "$$$"
+                }
+
+                url1 = resturants.nearby_restaurants[0].restaurant.events_url;
+
+
+                
+                
                 
 
                 update();
@@ -71,30 +96,17 @@ function start(){
 
         });
     });  
-
-    var api = "527c121c5d125ed8860ba0873283b0c9"
-
-    var queryURL = `https://developers.zomato.com/api/v2.1/cities?q=${city}&apikey=${api}`
-
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-    }).then(function (data) {
-        console.log(data)
-
-    })
-    
 }
-
 
 
 
 //function to update html
 function update(){
     //add items to html here
-    $("#name1").text(r1);
+    $("#name1").text("Restaurant:" + " " + r1);
     $("#address1").text(a1);
-    $("#averCost1").text(c1);
+    $("#price1").text(c1);
+    $("#url1").attr("href", url1);
 }
 
 start();
