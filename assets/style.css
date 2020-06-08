@@ -1,12 +1,7 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-image: url(../assets/images/notebook_large.png);
-    /*background-image: url(../assets/images/cork-wallet.png);*/
-    /*background-image: url(../assets/images/old_moon_large.jpg);*/
-    /*background-image: url(../assets/images/restaurant.png);*/
-    /*background-image: url(../assets/images/sandpaper.png);*/
     background-position-y: 22px;
-    background-size: cover;
 }
 
 #logo-header {
@@ -18,171 +13,32 @@ body {
     text-shadow: black 2px 3px 2px;
 }
 
-/*version one of background options for header and API info*/
-
-/*#restInfo {
-    background-image: url();
-    border: black solid 2px;
-    border-radius: 3px;
-    background-color: rgb(205, 206, 223);
-    margin-top: 20px;
-    margin-left: 70px;
-    padding-left: 30px;
-    padding-top: 20px;
-    height: 600px;
-    width:  800px;
-}
-.top-bar {
-    background-image: url(../assets/images/cook-366875_1920.jpg);
-    height: 175px;
-    width: 1500px;
-    padding-top: 125px;
-    padding-bottom: 775px;
-    margin-top: -750px;
-    opacity: .7;
-}
-.top-bar::before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 785px;
-    left: 0px;
-    background-color: rgba(10, 34, 85, 0.75);
-}*/
-
-/*version two of background options for header and API info*/
-
-/*#restInfo {
-    background-image: url();
-    border: black solid 2px;
-    border-radius: 3px;
-    background-color: rgb(219, 219, 219);
-    margin-top: 20px;
-    margin-left: 70px;
-    padding-left: 30px;
-    padding-top: 20px;
-    height: 600px;
-    width:  800px;
-}
-.top-bar {
-    position: relative;
-    height: 150px;
-    width: 1500px;
-    padding-top: 100px;
-    padding-bottom: 200px;
-    margin-top: -150px;
-    display: flex;
-}
-.top-bar::before {
-    content: "";
-    background-image: url(../assets/images/lisbon-2660748_1920.jpg);
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: .6;
-}*/
-
-/*version three of background options for header and API info*/
-
-/*#restInfo {
-    background-image: url();
-    border: black solid 2px;
-    border-radius: 3px;
-    background-color: rgb(219, 219, 219);
-    margin-top: 20px;
-    margin-left: 70px;
-    padding-left: 30px;
-    padding-top: 20px;
-    height: 600px;
-    width:  800px;
-}
-.top-bar {
-    position: relative;
-    height: 150px;
-    width: 1500px;
-    padding-top: 100px;
-    padding-bottom: 600px;
-    margin-top: -550px;
-    display: flex;
-}
-.top-bar::before {
-    content: "";
-    background-image: url(../assets/images/food-4397860_1920.jpg);
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: .7;
-}*/
-
-/*version four of background options for header and API info*/
-
-/*#restInfo {
-    background-image: url();
-    border: black solid 2px;
-    border-radius: 3px;
-    background-color: rgb(212, 205, 205);
-    margin-top: 20px;
-    margin-left: 70px;
-    padding-left: 30px;
-    padding-top: 20px;
-    height: 600px;
-    width:  800px;
-}
-.top-bar {
-    position: relative;
-    height: 150px;
-    width: 1500px;
-    padding-top: 100px;
-    padding-bottom: 600px;
-    margin-top: -550px;
-    display: flex;
-}
-.top-bar::before {
-    content: "";
-    background-image: url(../assets/images/bar-2314410_1920.jpg);
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: .7;
-}*/
-
-/*version five of background options for header and API info*/
-
 #restInfo {
     margin-top: 20px;
     padding-top: 20px;
     width:  100%
 }
 
-#card {
+.card {
     border: black solid 2px;
-    background-color: rgb(206, 221, 240);
+    background-color: rgb(215, 215, 216);
     margin: 10px;
     padding: 15px;
 }
 
-#card h2 {
+.card h2 {
     text-align: center;
     margin: 10px;
+    font-weight: bold;
 }
 
-#card a {
+.card a {
     display: inline-block;
     margin: 10px;
     text-align: center;
 }
 
-#card p {
+.card p {
     margin: 10px;
 }
 
@@ -196,7 +52,7 @@ body {
 
 .top-bar::before {
     content: "";
-    background-image: url(../assets/images/restaurant-1308007_1920.jpg);
+    background-image: url(../assets/images/food-4397860_1920.jpg);
     position: absolute;
     top: -300px;
     right: 0px;

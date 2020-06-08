@@ -1,0 +1,100 @@
+.grid-container {
+    width: 70%;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url(../assets/images/notebook_large.png);
+    background-position-y: 22px;
+    background-size: cover;
+}
+
+#logo-header {
+    position: relative;
+    margin-top: -100px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    color: white;
+    text-shadow: black 2px 3px 2px;
+}
+
+.top-bar {
+    position: relative;
+    height: 150px;
+    width: 1500px;
+    padding-top: 100px;
+    padding-bottom: 600px;
+    margin-top: -550px;
+    display: flex;
+}
+
+.top-bar::before {
+    content: "";
+    background-image: url(../assets/images/food-4397860_1920.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: .7;
+}
+
+#card1 {
+    background-image: url();
+    border: black solid 2px;
+    border-radius: 3px;
+    background-color: rgb(219, 219, 219);
+    margin-top: 20px;
+    margin-left: 100px;
+    padding-left: 30px;
+    padding-top: 20px;
+    height: 400px;
+    width:  800px;
+}
+
+/*#card2 {
+    background-image: url();
+    border: black solid 2px;
+    border-radius: 3px;
+    background-color: rgb(219, 219, 219);
+    margin-top: 20px;
+    margin-left: 100px;
+    padding-left: 30px;
+    padding-top: 20px;
+    height: 400px;
+    width:  800px;
+}
+
+#card3 {
+    background-image: url();
+    border: black solid 2px;
+    border-radius: 3px;
+    background-color: rgb(219, 219, 219);
+    margin-top: 20px;
+    margin-left: 100px;
+    padding-left: 30px;
+    padding-top: 20px;
+    height: 400px;
+    width:  800px;
+}
+
+#card4 {
+    background-image: url();
+    border: black solid 2px;
+    border-radius: 3px;
+    background-color: rgb(219, 219, 219);
+    margin-top: 20px;
+    margin-left: 100px;
+    padding-left: 30px;
+    padding-top: 20px;
+    height: 400px;
+    width:  800px;
+}*/
+
+
+@media screen and (max-width: 576px) {
+
+}
