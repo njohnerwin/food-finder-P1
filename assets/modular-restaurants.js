@@ -21,6 +21,7 @@ $(document).ready(function () {
     var userRatings;
     var userRate;
     var menuURL;
+    var ipInfo;
 
     var openweatherKey = "e1014510ebbf942b1f1d07d44fa4f59b";
     var zomatoKey = "527c121c5d125ed8860ba0873283b0c9";
@@ -106,4 +107,33 @@ $(document).ready(function () {
         })
 
     })
+
+
+    //getting users ip
+    $.ajax({
+        url: "https://api.ipify.org?format=json&callback=?",
+        method: "GET"
+    }).then(function getIP(json){
+        console.log(json);
+        ipInfo = json.ip;
+
+        //adding users ip to the link
+        var ipLink = "http://ip-api.com/json/" + ipInfo;
+
+
+
+
+        //getting users location based on ip
+        $.ajax({
+            url: ipLink,
+            method: "GET"
+        }).then(function getInfo(info){
+            console.log(info);
+            lat = info.lat;
+            lon = info.lon;
+            searchByCity(lat, lon);
+        });
+
+    });
+
 })
