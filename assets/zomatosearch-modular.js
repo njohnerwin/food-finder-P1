@@ -1,17 +1,12 @@
 $(document).ready(function () {
 
     // numerical codes: -1 = has, 0 = doesn't have
-    // use variables to hold results to push to zomato api call
+    // initialize variables
     var zipCode;
     var locationString;
     var lat;
     var lon;
-    var id;
-    var restList = [];
-    var restIDS = []
-    console.log(restList)
     var restaurant;
-    var resID;
     var resCuisines;
     var resAvgCost;
     var delivery;
@@ -20,25 +15,22 @@ $(document).ready(function () {
     var takeOutStr;
     var address;
     var userRatings;
-    var userRate;
-    var menuURL;
-    var ipInfo;
+    var zomatoURL;
     var pageCount;
     var page;
 
+    //required API keys (ipapi doesn't need one)
     var openweatherKey = "e1014510ebbf942b1f1d07d44fa4f59b";
     var zomatoKey = "527c121c5d125ed8860ba0873283b0c9";
 
+    //The primary function of the page - creates the restaurant cards and publishes them to #restInfo
     function searchByCity(lat, lon, page) {
 
+        //converts the current page number into a usable numeric "start" value for the query
         var offset = (page * 15).toString();
-        console.log(page);
-        console.log(typeof(page));
-        console.log(offset);
-        console.log(typeof(offset));
-        var zomatoQ = `https://developers.zomato.com/api/v2.1/search?start=${offset}&count=15&lat=${lat}&lon=${lon}&sort=real_distance`;
 
-        console.log(zomatoQ);
+        //The full query URL
+        var zomatoQ = `https://developers.zomato.com/api/v2.1/search?start=${offset}&count=15&lat=${lat}&lon=${lon}&sort=real_distance`;
 
         $.ajax({
             url: zomatoQ,
@@ -48,24 +40,34 @@ $(document).ready(function () {
                 "accept": "application/json"
             }
         }).then(function (rests) {
+            //The return is logged for easy debugging
             console.log(rests);
+
+            //Calculates a total page count from the # of results in the return
             pageCount = Math.ceil(rests.results_found / rests.results_shown);
+
             // empty id's before dumping new info
             $("#restInfo").empty();
+
             revealNav(page);
+
+            //Displays the current page and total page count to the user
+            $("#bookmark").text(`Page ${page + 1} of ${pageCount}`);
+
+            //loops through all of the restaurants in the current return
             for (var x in rests.restaurants) {
-                console.log(rests.restaurants[x]);
+
+                //stores all of the relevant restaurant info in the proper variables for ease of access
                 restaurant = rests.restaurants[x].restaurant.name;
-                resID = rests.restaurants[x].restaurant.id;
                 resCuisines = rests.restaurants[x].restaurant.cuisines;
                 resAvgCost = rests.restaurants[x].restaurant.average_cost_for_two;
                 delivery = rests.restaurants[x].restaurant.R.has_menu_status.delivery;
                 takeOut = rests.restaurants[x].restaurant.R.has_menu_status.takeaway;
                 address = rests.restaurants[x].restaurant.location.address;
                 userRatings = rests.restaurants[x].restaurant.user_rating.aggregate_rating;
-                userRate = rests.restaurants[x].restaurant.user_rating.rating_text;
-                menuURL = rests.restaurants[x].restaurant.menu_url;
+                zomatoURL = rests.restaurants[x].restaurant.url;
 
+                //Translates the numeric "delivery" and "takeout" results into English
                 if (delivery === -1) {
                     deliveryStr = "Yes";
                 }
@@ -79,9 +81,8 @@ $(document).ready(function () {
                 else {
                     takeOutStr = "No";
                 }
-
-                $("#bookmark").text(`Page ${page + 1} of ${pageCount}`);
                 
+                //Populates the restInfo div with a distinct card containing all of the information received for this particular restaurant
                 $("#restInfo").append($(`
                     <section class="card" id="card${x}">
                         <h2 id="name${x}">${restaurant}</h2>
@@ -91,7 +92,7 @@ $(document).ready(function () {
                         <p id="delivery${x}"><b>Delivery:</b> ${deliveryStr}</p>
                         <p id="takeout${x}"><b>Takeout:</b> ${takeOutStr}</p>
                         <p id="rating${x}"><b>User rating:</b> ${userRatings}</p>
-                        <a href="#" id="url${x}">Zomato home page</a>
+                        <a href="${zomatoURL}" id="url${x}">Zomato home page</a>
                     </section>
                 `));
 
@@ -99,20 +100,23 @@ $(document).ready(function () {
         });
     }
 
+    //Function manages the display status of the page navigation buttons. Hides "first" and "prev" if on page 1.
     function revealNav(page) {
         
         if (page > 0) {
             $("#prev").css("visibility", "visible");
+            $("#first").css("visibility", "visible");
         }
         else {
             $("#prev").css("visibility", "hidden");
+            $("#first").css("visibility", "hidden");
         }
 
         $("#next").css("visibility", "visible");
 
     }
 
-
+    //Gets the user's IP and their location (in lat/lon coordinates) from ipapi, then calls searchByCity()
     $.ajax({
         url: "https://ipapi.co/json/",
         method: "GET"
@@ -127,6 +131,7 @@ $(document).ready(function () {
         searchByCity(lat, lon, page);
     })
 
+    //Validates zip code input and uses it to call searchByCity() on a new location
     $("#save").on("click", function (event) {
 
         event.preventDefault();
@@ -134,6 +139,11 @@ $(document).ready(function () {
 
         var openweatherQ = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${openweatherKey}`;
 
+        if (zipCode === "" || zipCode.length != 5) {
+            searchByCity(lat, lon, page);
+        }
+
+        //Uses the OpenWeather API to translate the zip code into coordinates
         $.ajax({
             url: openweatherQ,
             method: "GET",
@@ -150,8 +160,14 @@ $(document).ready(function () {
 
     })
 
+    //The following three event handlers govern page navigation
     $("#next").on("click", function (event) {
         page++;
+        searchByCity(lat, lon, page);
+    })
+
+    $("#first").on("click", function () {
+        page = 0;
         searchByCity(lat, lon, page);
     })
 

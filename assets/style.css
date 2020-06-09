@@ -87,6 +87,7 @@ button {
 
 #locationInput {
     width: 300px;
+    display: inline-block;
 }
 
 .navbutton {
@@ -102,6 +103,10 @@ button {
 }
 
 #next {
+    visibility: hidden;
+}
+
+#first {
     visibility: hidden;
 }
 
