@@ -23,13 +23,20 @@ $(document).ready(function () {
     var userRate;
     var menuURL;
     var ipInfo;
+    var pageCount;
+    var page;
 
     var openweatherKey = "e1014510ebbf942b1f1d07d44fa4f59b";
     var zomatoKey = "527c121c5d125ed8860ba0873283b0c9";
 
-    function searchByCity(lat, lon) {
+    function searchByCity(lat, lon, page) {
 
-        var zomatoQ = `https://developers.zomato.com/api/v2.1/search?count=10&lat=${lat}&lon=${lon}`;
+        var offset = (page * 15).toString();
+        console.log(page);
+        console.log(typeof(page));
+        console.log(offset);
+        console.log(typeof(offset));
+        var zomatoQ = `https://developers.zomato.com/api/v2.1/search?start=${offset}&count=15&lat=${lat}&lon=${lon}&sort=rating`;
 
         console.log(zomatoQ);
 
@@ -42,8 +49,10 @@ $(document).ready(function () {
             }
         }).then(function (rests) {
             console.log(rests);
+            pageCount = Math.ceil(rests.results_found / rests.results_shown);
             // empty id's before dumping new info
             $("#restInfo").empty();
+            revealNav(page);
             for (var x in rests.restaurants) {
                 console.log(rests.restaurants[x]);
                 restaurant = rests.restaurants[x].restaurant.name;
@@ -70,6 +79,8 @@ $(document).ready(function () {
                 else {
                     takeOutStr = "No";
                 }
+
+                $("#bookmark").text(`Page ${page + 1} of ${pageCount}`);
                 
                 $("#restInfo").append($(`
                     <section class="card" id="card${x}">
@@ -88,6 +99,19 @@ $(document).ready(function () {
         });
     }
 
+    function revealNav(page) {
+        
+        if (page > 0) {
+            $("#prev").css("visibility", "visible");
+        }
+        else {
+            $("#prev").css("visibility", "hidden");
+        }
+
+        $("#next").css("visibility", "visible");
+
+    }
+
 
     $.ajax({
         url: "https://ipapi.co/json",
@@ -97,9 +121,10 @@ $(document).ready(function () {
         console.log(json);
         lon = json.longitude;
         lat = json.latitude;
+        page = 0;
         locationString = `${json.city}, ${json.region_code} - ${json.country}`;
         $("#showLocation").text("Showing results for your location: " + locationString);
-        searchByCity(lat, lon);
+        searchByCity(lat, lon, page);
     })
 
     $("#save").on("click", function (event) {
@@ -117,11 +142,22 @@ $(document).ready(function () {
             console.log(data.coord);
             lat = data.coord.lat;
             lon = data.coord.lon;
+            page = 0;
             locationString = data.name;
             $("#showLocation").text("Showing results for: " + locationString);
-            searchByCity(lat, lon);
+            searchByCity(lat, lon, page);
         })
 
+    })
+
+    $("#next").on("click", function (event) {
+        page++;
+        searchByCity(lat, lon, page);
+    })
+
+    $("#prev").on("click", function (event) {
+        page--;
+        searchByCity(lat, lon, page);
     })
 
 })
