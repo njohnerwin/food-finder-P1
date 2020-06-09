@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+    <head>
+
+        <title>Find restaurants in your area!</title>
+        
+        <!--Foundation-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+
+        <!--Stylesheet-->
+        <link rel="stylesheet" href="assets/mergestyle.css">
+
+        <!--JQuery-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!--Responsive viewport-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    </head>
+
+    <body>
+
+        <img name = 'slide' width="1600" style="opacity: 85%; margin-top: 150px;">
+
+        <header class="top-bar" id="logo-header-bckg">
+            <h1 id="logo-header">Food-Finder: See restaurants in your area!</h1>
+        </header>
+        
+        <div class="grid-container">
+            
+            
+            <label for="locationInput" id="city"><b>What city are you searching in?</b></label>
+            <input type="text" id="locationInput" name="locationInput">
+            <button id="save">Save</button>
+
+            <div class="grid-x grid-margin-x">
+                <div class="cell medium-12" id="restInfo">
+                    
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <script src="merged.js"></script>
+    
+</html>
