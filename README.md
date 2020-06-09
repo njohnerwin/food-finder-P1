@@ -7,6 +7,25 @@
  - Matthew Craig https://github.com/mcraig150
  - Taewoo Kim
 
+# User Story
+ - AS A person looking for new food options in my area
+ - I WANT an app that will provide nearby restaurants and delivery options
+ - SO THAT I can see what's available and try out new cuisines
+
+# Project Description
+- Gets list of nearby restaurants
+- Allows user to input distance radius
+- Allow user to select to show all options or only delivery / pick-up
+- Presents restaurants in list format
+- Allow user to sort in order of popularity or price
+-- Location (City + State + Street Address)
+-- Name
+-- URL (and menu URL)
+-- Phone Number
+-- Images
+-- Price range
+-- User rating
+
 # APIs Used
  - Zomato API https://developers.zomato.com/documentation#!/restaurant/restaurant_0
  - Open Weather Map API https://home.openweathermap.org/
