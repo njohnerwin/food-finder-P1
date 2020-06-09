@@ -36,7 +36,7 @@ $(document).ready(function () {
         console.log(typeof(page));
         console.log(offset);
         console.log(typeof(offset));
-        var zomatoQ = `https://developers.zomato.com/api/v2.1/search?start=${offset}&count=15&lat=${lat}&lon=${lon}&sort=rating`;
+        var zomatoQ = `https://developers.zomato.com/api/v2.1/search?start=${offset}&count=15&lat=${lat}&lon=${lon}&sort=real_distance`;
 
         console.log(zomatoQ);
 
@@ -114,7 +114,7 @@ $(document).ready(function () {
 
 
     $.ajax({
-        url: "https://ipapi.co/json",
+        url: "https://ipapi.co/json/",
         method: "GET"
     }).then(function(json) {
         console.log("This is the ipapi return:");
