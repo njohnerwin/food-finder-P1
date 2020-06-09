@@ -118,7 +118,7 @@ $(document).ready(function () {
         ipInfo = json.ip;
 
         //adding users ip to the link
-        var ipLink = "http://ip-api.com/json/" + ipInfo;
+        var ipLink = "https://ip-api.com/json/" + ipInfo;
 
 
 
