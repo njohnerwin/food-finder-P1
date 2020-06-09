@@ -2,7 +2,8 @@ $(document).ready(function () {
 
     // numerical codes: -1 = has, 0 = doesn't have
     // use variables to hold results to push to zomato api call
-    var cityName;
+    var zipCode;
+    var locationString;
     var lat;
     var lon;
     var id;
@@ -87,13 +88,25 @@ $(document).ready(function () {
     }
 
 
+    $.ajax({
+        url: "https://ipapi.co/json",
+        method: "GET"
+    }).then(function(json) {
+        console.log("This is the ipapi return:");
+        console.log(json);
+        lon = json.longitude;
+        lat = json.latitude;
+        locationString = `${json.city}, ${json.region_code} - ${json.country}`;
+        $("#showLocation").text("Showing results for your location: " + locationString);
+        searchByCity(lat, lon);
+    })
 
     $("#save").on("click", function (event) {
 
         event.preventDefault();
-        cityName = $("#locationInput").val().trim();
+        zipCode = $("#locationInput").val().trim();
 
-        var openweatherQ = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${openweatherKey}`;
+        var openweatherQ = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${openweatherKey}`;
 
         $.ajax({
             url: openweatherQ,
@@ -103,37 +116,11 @@ $(document).ready(function () {
             console.log(data.coord);
             lat = data.coord.lat;
             lon = data.coord.lon;
+            locationString = data.name;
+            $("#showLocation").text("Showing results for: " + locationString);
             searchByCity(lat, lon);
         })
 
     })
-
-
-    //getting users ip
-    $.ajax({
-        url: "https://api.ipify.org?format=json&callback=?",
-        method: "GET"
-    }).then(function getIP(json){
-        console.log(json);
-        ipInfo = json.ip;
-
-        //adding users ip to the link
-        var ipLink = "https://ip-api.com/json/" + ipInfo;
-
-
-
-
-        //getting users location based on ip
-        $.ajax({
-            url: ipLink,
-            method: "GET"
-        }).then(function getInfo(info){
-            console.log(info);
-            lat = info.lat;
-            lon = info.lon;
-            searchByCity(lat, lon);
-        });
-
-    });
 
 })
