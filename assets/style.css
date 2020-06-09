@@ -13,9 +13,14 @@ body {
     text-shadow: black 2px 3px 2px;
 }
 
+#showLocation {
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
 #restInfo {
-    margin-top: 20px;
-    padding-top: 20px;
+    margin-top: 10px;
     width:  100%
 }
 
