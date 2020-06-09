@@ -14,7 +14,7 @@ p
 
 #Project Description 
 ...
-<!-- - Gets list of nearby restaurants
+- Gets list of nearby restaurants
 - Allows user to input distance radius
 - Allow user to select to show all options or only delivery / pick-up
 - Presents restaurants in list format 
@@ -26,7 +26,7 @@ p
 -- Phone Number
 -- Images
 -- Price range
--- User rating -->
+-- User rating
 
 #User Story 
  - AS A person looking for new food options in my area
@@ -39,13 +39,19 @@ p
  - IP API https://ipapi.com/
 
 #Programming Languages
- - HTML5 
+ 
+- HTML5
+    We used HTML to hold the basic structure of the website, no style or coding was performed in this file.
  - CSS
+    The CSS file was used to managed the header image, fullpage background, font and background of each card that held the API response information.
  - JQuery
+    Our JS file managed all the code and query to our API's, which included OpenWeather and Zomato. We used OpenWeather's location capability to provide accurate zipcode information which we combined with Zomato to deliver a list of available restaurants in the user's area. We also added the option to search other destinations via zipcode or city name. The query results provided the user name, location, contact information, average price and customer rating
 
 #Other Resources
- - ZURB Foundation https://get.foundation/
+- ZURB Foundation https://get.foundation/
+    To manage the structure of the webpage and its responsiveness, we used Foundation as our CSS Framework template.
  - 8 Coupons https://www.8coupons.com/deals/restaurants
+    We provided the user the option to search for discounts to restaurants in their area via a link to 8coupons.com.
 
 #Screen Shots
 
