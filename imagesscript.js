@@ -14,7 +14,7 @@
         images[9] = 'assets/bckg_photos/pizza-329523_1920.jpg';
         images[10] = 'assets/bckg_photos/spaghetti-3547078_1920.jpg';
         images[11] = 'assets/bckg_photos/sushi-2853382_1920.jpg';
-        images[11] = 'assets/bckg_photos/waffles-5192626_1920.jpg';
+        images[12] = 'assets/bckg_photos/waffles-5192626_1920.jpg';
 
 
         function changeImage(){
