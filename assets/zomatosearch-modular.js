@@ -27,10 +27,11 @@ $(document).ready(function () {
     function searchByCity(lat, lon, page) {
 
         //converts the current page number into a usable numeric "start" value for the query
-        var offset = (page * 15).toString();
+        var offset = (page * 15);
 
         //The full query URL
         var zomatoQ = `https://developers.zomato.com/api/v2.1/search?start=${offset}&count=15&lat=${lat}&lon=${lon}&sort=real_distance`;
+        console.log(zomatoQ);
 
         $.ajax({
             url: zomatoQ,
@@ -44,7 +45,7 @@ $(document).ready(function () {
             console.log(rests);
 
             //Calculates a total page count from the # of results in the return
-            pageCount = Math.ceil(rests.results_found / rests.results_shown);
+            pageCount = Math.ceil(rests.results_found / 15);
 
             // empty id's before dumping new info
             $("#restInfo").empty();
