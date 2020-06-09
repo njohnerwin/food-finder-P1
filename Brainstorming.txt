@@ -5,6 +5,10 @@
 - Return restaurants in the area
 - Also returns info on the restaurants
 
+## USER STORY
+  AS A person looking for new food options in my area
+  I WANT an app that will provide nearby restaurants and delivery options
+  SO THAT I can see what's available and try out something new
 
 # APIs Used
 
